@@ -56,7 +56,7 @@ export default function Home() {
 
       <aside className="sidebar-right">
         <div className="search-box card"><div className="search-input"><Icon name="search" size={16}/><input value={query} onChange={(e)=>setQuery(e.target.value)} placeholder="Find people" /></div>{results.length > 0 && <div className="search-results">{results.map((person)=><Link key={person.id} to={`/profile/${person.username}`} onClick={()=>setQuery("")}><Avatar user={person} size="sm"/><div><strong>{person.name}</strong><span>@{person.username}</span></div></Link>)}</div>}</div>
-        <div className="insight-card card"><span className="eyebrow">Built for proof</span><h3>Real full-stack workflow.</h3><p>Authentication, persistent content, relationships and UI state all work together through the API.</p><div className="pill-row"><span>React</span><span>Express</span><span>MongoDB</span></div></div>
+        {/* <div className="insight-card card"><span className="eyebrow">Built for proof</span><h3>Real full-stack workflow.</h3><p>Authentication, persistent content, relationships and UI state all work together through the API.</p><div className="pill-row"><span>React</span><span>Express</span><span>MongoDB</span></div></div> */}
       </aside>
     </div>
   </main>;

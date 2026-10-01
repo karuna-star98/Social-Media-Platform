@@ -16,7 +16,7 @@ export default function Landing() {
           <h1>Where people, ideas and progress <span>connect.</span></h1>
           <p>ConnectSphere is a clean, internship-ready social platform built with React, Node.js, Express and MongoDB — designed to demonstrate real full-stack workflows, not just a static UI.</p>
           <div className="hero-actions"><Link to="/register" className="btn btn-primary btn-lg">Create account <Icon name="arrow" size={18}/></Link><Link to="/login" className="btn btn-secondary btn-lg">Sign in</Link></div>
-          <div className="hero-proof"><span><Icon name="check" size={15}/> JWT auth</span><span><Icon name="check" size={15}/> MongoDB</span><span><Icon name="check" size={15}/> REST APIs</span></div>
+          {/* <div className="hero-proof"><span><Icon name="check" size={15}/> JWT auth</span><span><Icon name="check" size={15}/> MongoDB</span><span><Icon name="check" size={15}/> REST APIs</span></div> */}
         </div>
         <div className="hero-visual">
           <div className="hero-card hero-card-main"><div className="mini-brand"><span className="brand-mark">C</span><strong>ConnectSphere</strong></div><div className="hero-stat-row"><div><small>Community</small><strong>24.8k</strong></div><div><small>Conversations</small><strong>8.2k</strong></div></div><div className="mock-post"><div className="mock-avatar"/><div><strong>Build in public.</strong><p>Small releases, honest feedback, better products.</p></div></div><div className="mock-bar"/><div className="mock-bar short"/></div>
