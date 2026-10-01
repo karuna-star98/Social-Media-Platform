@@ -1,0 +1,29 @@
+{
+  "info": {
+    "name": "ConnectSphere API",
+    "_postman_id": "connectsphere-codealpha",
+    "description": "Core REST API requests for the CodeAlpha ConnectSphere internship project.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key":"baseUrl","value":"http://localhost:5000"},
+    {"key":"token","value":""},
+    {"key":"postId","value":""},
+    {"key":"commentId","value":""},
+    {"key":"userId","value":""},
+    {"key":"username","value":""}
+  ],
+  "item": [
+    {"name":"Health","request":{"method":"GET","url":{"raw":"{{baseUrl}}/api/health","host":["{{baseUrl}}"],"path":["api","health"]}}},
+    {"name":"Register","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"name\": \"Test User\",\n  \"username\": \"testuser{{randomInt 10 99}}\",\n  \"email\": \"testuser{{randomInt 100 999}}@example.com\",\n  \"password\": \"Connect123!\"\n}"},"url":{"raw":"{{baseUrl}}/api/auth/register","host":["{{baseUrl}}"],"path":["api","auth","register"]}}},
+    {"name":"Login","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"email\": \"testuser@example.com\",\n  \"password\": \"Connect123!\"\n}"},"url":{"raw":"{{baseUrl}}/api/auth/login","host":["{{baseUrl}}"],"path":["api","auth","login"]}}},
+    {"name":"Me","request":{"method":"GET","header":[{"key":"Authorization","value":"Bearer {{token}}"}],"url":{"raw":"{{baseUrl}}/api/auth/me","host":["{{baseUrl}}"],"path":["api","auth","me"]}}},
+    {"name":"Feed","request":{"method":"GET","url":{"raw":"{{baseUrl}}/api/posts","host":["{{baseUrl}}"],"path":["api","posts"]}}},
+    {"name":"Create post","request":{"method":"POST","header":[{"key":"Authorization","value":"Bearer {{token}}"},{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"content\": \"Hello from Postman\"\n}"},"url":{"raw":"{{baseUrl}}/api/posts","host":["{{baseUrl}}"],"path":["api","posts"]}}},
+    {"name":"Like post","request":{"method":"POST","header":[{"key":"Authorization","value":"Bearer {{token}}"}],"url":{"raw":"{{baseUrl}}/api/posts/{{postId}}/like","host":["{{baseUrl}}"],"path":["api","posts", "{{postId}}", "like"]}}},
+    {"name":"Comments","request":{"method":"GET","url":{"raw":"{{baseUrl}}/api/comments/post/{{postId}}","host":["{{baseUrl}}"],"path":["api","comments","post","{{postId}}"]}}},
+    {"name":"Add comment","request":{"method":"POST","header":[{"key":"Authorization","value":"Bearer {{token}}"},{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"text\": \"Nice post!\"\n}"},"url":{"raw":"{{baseUrl}}/api/comments/post/{{postId}}","host":["{{baseUrl}}"],"path":["api","comments","post","{{postId}}"]}}},
+    {"name":"Profile","request":{"method":"GET","url":{"raw":"{{baseUrl}}/api/users/{{username}}","host":["{{baseUrl}}"],"path":["api","users","{{username}}"]}}},
+    {"name":"Follow user","request":{"method":"POST","header":[{"key":"Authorization","value":"Bearer {{token}}"}],"url":{"raw":"{{baseUrl}}/api/users/{{userId}}/follow","host":["{{baseUrl}}"],"path":["api","users","{{userId}}","follow"]}}}
+  ]
+}
